@@ -27,31 +27,31 @@ Caso queira criar mais funcionalidades fique à vontade, apenas se lembre de men
 
 Decidi começar por analisar a estrutura que seria utilizada no banco de dados para salvar as informações acabei decidindo seguir a seguinte estrutura
 
-Veículos
--Id
--Id Modelo
--Id Marca
--Ano de Fabricação
--Placa
--Cor
--Chassi
--Data da compra
--Valor da compra
+### Veículos
+- Id
+- Id Modelo
+- Id Marca
+- Ano de Fabricação
+- Placa
+- Cor
+- Chassi
+- Data da compra
+- Valor da compra
 
-Modelo
--Id
--Nome
+### Modelo
+- Id
+- Nome
 
-Marca
--id
--Nome
+### Marca
+- Id
+- Nome
 
-Veículos Vendidos
--Id
--Id Veiculo
--Data da venda
--Valor venda
--Comissão do vendedor
+### Veículos Vendidos
+- Id
+- Id Veiculo
+- Data da venda
+- Valor venda
+- Comissão do vendedor
 
 Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios para a construição da api o resultado foi o seguinte
 
