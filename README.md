@@ -38,14 +38,6 @@ Decidi começar por analisar a estrutura que seria utilizada no banco de dados p
 - Data da compra
 - Valor da compra
 
-### Modelo
-- Id
-- Nome
-
-### Marca
-- Id
-- Nome
-
 ### Veículos Vendidos
 - Id
 - Id Veiculo
@@ -55,12 +47,20 @@ Decidi começar por analisar a estrutura que seria utilizada no banco de dados p
 
 Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios para a construição da api o resultado foi o seguinte
 
-- Um get, post, put e delete para o gerenciamento de Marcas
-- Um get, post, put e delete para o gerenciamento de Modelos
+#### Tela Financeiro
+- Um get para o historico de compra e venda
+- Um get para o lucro/prejuizo da empresa por mês
+- Um get para listagem das comissões por mês
+
+
+
 - Um get, post, put e delete para o gerenciamento de Veiculos
 - Um post para criar uma venda
 - Um get para Listagem de veiculos vendidos
 - Um get para Listagem dos veiculos não vendidos
-- Um get para o historico de compra e venda
-- Um get para o lucro/prejuizo da empresa por mês
-- Um get para listagem das comissões por mês
+
+## Próximos passos foi criar alguns wireframes para o projeto
+
+
+
+
