@@ -61,6 +61,18 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 
 ## Próximos passos foi criar alguns wireframes para o projeto
 
+<img src="/images-readme/compras.jpeg" />
+
+<img src="/images-readme/compraveiculo.jpeg" />
+
+<img src="/images-readme/vendas.jpeg" />
+
+<img src="/images-readme/vendaveiculo.jpeg" />
+
+<img src="/images-readme/financeiro.jpeg" />
+
+<img src="/images-readme/todosveiculos.jpeg" />
+
 
 
 
