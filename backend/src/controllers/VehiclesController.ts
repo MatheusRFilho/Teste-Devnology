@@ -66,9 +66,19 @@ class VehiclesController {
 
     const vehiclesRepository = getRepository(Vehicles);
 
-    const vehicle = await vehiclesRepository.update(id, editInfos);
+    await vehiclesRepository.update(id, editInfos);
 
     return response.send('Veiculo atualizado com sucesso').status(200);
+  }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const vehiclesRepository = getRepository(Vehicles);
+
+    await vehiclesRepository.delete(id);
+
+    return response.send('Veiculo Deletado com sucesso').status(200);
   }
 }
 
