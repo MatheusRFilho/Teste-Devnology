@@ -48,6 +48,18 @@ class VehiclesController {
 
     return response.json(vehicles);
   }
+
+  async edit(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const vehiclesRepository = getRepository(Vehicles);
+
+    const vehicles = await vehiclesRepository.find({
+      id,
+    });
+    console.log(id);
+    return response.json(vehicles);
+  }
 }
 
 export { VehiclesController };
