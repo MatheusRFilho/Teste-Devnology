@@ -6,6 +6,7 @@ const vehiclesController = new VehiclesController();
 
 router.post('/vehicles', vehiclesController.create);
 router.get('/vehicles', vehiclesController.execute);
-router.get('/vehicles/:id', vehiclesController.edit);
+router.get('/vehicles/:id', vehiclesController.getById);
+router.put('/vehicles/:id', vehiclesController.edit);
 
 export { router };

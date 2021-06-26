@@ -38,7 +38,7 @@ class VehiclesController {
 
     await vehiclesRepository.save(vehicle);
 
-    return response.send('OK').status(200);
+    return response.json(vehicle).status(200);
   }
 
   async execute(request: Request, response: Response) {
@@ -49,7 +49,7 @@ class VehiclesController {
     return response.json(vehicles);
   }
 
-  async edit(request: Request, response: Response) {
+  async getById(request: Request, response: Response) {
     const { id } = request.params;
 
     const vehiclesRepository = getRepository(Vehicles);
@@ -57,8 +57,18 @@ class VehiclesController {
     const vehicles = await vehiclesRepository.find({
       id,
     });
-    console.log(id);
     return response.json(vehicles);
+  }
+
+  async edit(request: Request, response: Response) {
+    const { id } = request.params;
+    const editInfos = request.body;
+
+    const vehiclesRepository = getRepository(Vehicles);
+
+    const vehicle = await vehiclesRepository.update(id, editInfos);
+
+    return response.send('Veiculo atualizado com sucesso').status(200);
   }
 }
 
