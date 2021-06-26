@@ -40,6 +40,14 @@ class VehiclesController {
 
     return response.send('OK').status(200);
   }
+
+  async execute(request: Request, response: Response) {
+    const vehiclesRepository = getRepository(Vehicles);
+
+    const vehicles = await vehiclesRepository.find();
+
+    return response.json(vehicles);
+  }
 }
 
 export { VehiclesController };
