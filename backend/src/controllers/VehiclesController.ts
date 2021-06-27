@@ -50,7 +50,6 @@ class VehiclesController {
     const date = buy_date;
     const value = buy_value;
     const commision = (value * 10) / 100;
-    console.log(isAvailable);
     let history;
     if (vehicle.isAvailable === false) {
       history = historyRepository.create({
@@ -112,6 +111,28 @@ class VehiclesController {
     await vehiclesRepository.delete(id);
 
     return response.send('Veiculo Deletado com sucesso').status(200);
+  }
+
+  async sell(request: Request, response: Response) {
+    const { id } = request.params;
+    const { sell_date, sell_value } = request.body;
+
+    const vehiclesRepository = getRepository(Vehicles);
+    const historyRepository = getRepository(History);
+
+    await vehiclesRepository.update(id, { isAvailable: false });
+
+    let history = historyRepository.create({
+      vehicle_id: id,
+      date: sell_date,
+      value: sell_value,
+      type: 'sell',
+      commision: (sell_value * 10) / 100,
+    });
+
+    await historyRepository.save(history);
+
+    return response.send('Venda realizada com sucesso').status(200);
   }
 }
 

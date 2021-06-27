@@ -55,9 +55,9 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 
 
 - [x] Um get, post, put e delete para o gerenciamento de Veiculos
-- Um post para criar uma venda
-- Um get para Listagem de veiculos vendidos
-- Um get para Listagem dos veiculos não vendidos
+- [x] Um post para criar uma venda
+- [x] Um get para Listagem de veiculos vendidos
+- [x] Um get para Listagem dos veiculos não vendidos
 
 ## Próximos passos foi criar alguns wireframes para o projeto
 
@@ -73,6 +73,10 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 
 <img src="/images-readme/todosveiculos.jpeg" />
 
+
+## Próxima etapa
+
+- Desenvolvimento do backend da aplicação
 
 
 

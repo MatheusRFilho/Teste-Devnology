@@ -10,23 +10,11 @@ class HistoryController {
     const { type } = request.params;
 
     const historyRepository = getRepository(History);
-    const vehicleReporitory = getRepository(Vehicles);
 
     const history = await historyRepository.find({
       type,
     });
-    let aux = [];
-
-    for (let x = 0; x < history.length; x++) {
-      const vehicle = await vehicleReporitory.find({
-        id: history[x].vehicle_id,
-      });
-
-      if (history[x] !== undefined && vehicle !== undefined) {
-        aux.push({ ...history[x], ...vehicle[0] });
-      }
-    }
-    return response.json(aux);
+    return response.json(history);
   }
 
   async get_profit_injury_by_month(request: Request, response: Response) {
@@ -90,19 +78,7 @@ class HistoryController {
     const history = await historyRepository.find({
       type: 'buy',
     });
-    let aux = [];
-
-    for (let x = 0; x < history.length; x++) {
-      const vehicle = await vehicleReporitory.find({
-        id: history[x].vehicle_id,
-        isAvailable: true,
-      });
-
-      if (history[x] !== undefined && vehicle !== undefined) {
-        aux.push({ ...history[x], ...vehicle[0] });
-      }
-    }
-    return response.json(aux);
+    return response.json(history);
   }
 }
 

@@ -13,6 +13,8 @@ router.get('/vehicles/:id', vehiclesController.getById);
 router.put('/vehicles/:id', vehiclesController.edit);
 router.delete('/vehicles/:id', vehiclesController.delete);
 
+router.post('/sell/:id', vehiclesController.sell);
+
 router.get('/history/:type', historyController.execute);
 router.get(
   '/history/:month/:year',

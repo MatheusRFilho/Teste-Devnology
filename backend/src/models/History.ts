@@ -10,7 +10,7 @@ class History {
   @Column()
   vehicle_id: string;
 
-  @ManyToOne(() => Vehicles)
+  @ManyToOne(() => Vehicles, { eager: true })
   @JoinColumn({ name: 'vehicle_id' })
   vehicle: Vehicles;
 
