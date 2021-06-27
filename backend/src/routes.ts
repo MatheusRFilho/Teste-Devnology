@@ -18,5 +18,6 @@ router.get(
   '/history/:month/:year',
   historyController.get_profit_injury_by_month,
 );
+router.get('/available-to-sell', historyController.available_to_sell);
 
 export { router };

@@ -3,17 +3,30 @@ import moment from 'moment';
 import { getRepository } from 'typeorm';
 import { AppError } from '../errors/AppError';
 import { History } from '../models/History';
+import { Vehicles } from '../models/Vehicles';
 
 class HistoryController {
   async execute(request: Request, response: Response) {
     const { type } = request.params;
 
     const historyRepository = getRepository(History);
+    const vehicleReporitory = getRepository(Vehicles);
 
     const history = await historyRepository.find({
       type,
     });
-    return response.json(history);
+    let aux = [];
+
+    for (let x = 0; x < history.length; x++) {
+      const vehicle = await vehicleReporitory.find({
+        id: history[x].vehicle_id,
+      });
+
+      if (history[x] !== undefined && vehicle !== undefined) {
+        aux.push({ ...history[x], ...vehicle[0] });
+      }
+    }
+    return response.json(aux);
   }
 
   async get_profit_injury_by_month(request: Request, response: Response) {
@@ -68,6 +81,28 @@ class HistoryController {
       totalBuy: totalBuy,
       totalSell: totalSell,
     });
+  }
+
+  async available_to_sell(request: Request, response: Response) {
+    const historyRepository = getRepository(History);
+    const vehicleReporitory = getRepository(Vehicles);
+
+    const history = await historyRepository.find({
+      type: 'buy',
+    });
+    let aux = [];
+
+    for (let x = 0; x < history.length; x++) {
+      const vehicle = await vehicleReporitory.find({
+        id: history[x].vehicle_id,
+        isAvailable: true,
+      });
+
+      if (history[x] !== undefined && vehicle !== undefined) {
+        aux.push({ ...history[x], ...vehicle[0] });
+      }
+    }
+    return response.json(aux);
   }
 }
 
