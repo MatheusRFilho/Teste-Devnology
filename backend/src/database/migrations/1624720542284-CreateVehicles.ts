@@ -36,14 +36,6 @@ export class CreateVehicles1624720542284 implements MigrationInterface {
             type: 'varchar',
           },
           {
-            name: 'buy_date',
-            type: 'timestamp',
-          },
-          {
-            name: 'buy_value',
-            type: 'number',
-          },
-          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

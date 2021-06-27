@@ -22,13 +22,7 @@ class Vehicles {
   chassi: string;
 
   @Column()
-  buy_value: number;
-
-  @Column()
   year_of_fabrication: number;
-
-  @Column()
-  buy_date: Date;
 
   @CreateDateColumn()
   created_at: Date;

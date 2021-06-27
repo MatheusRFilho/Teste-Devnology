@@ -3,6 +3,7 @@ import moment from 'moment';
 import { getRepository } from 'typeorm';
 import { AppError } from '../errors/AppError';
 import { Vehicles } from '../models/Vehicles';
+import { History } from '../models/History';
 
 class VehiclesController {
   async create(request: Request, response: Response) {
@@ -15,9 +16,11 @@ class VehiclesController {
       chassi,
       plate,
       year_of_fabrication,
+      type_of_operation,
     } = request.body;
 
     const vehiclesRepository = getRepository(Vehicles);
+    const historyRepository = getRepository(History);
 
     const isvaliddate = moment(buy_date).isValid();
 
@@ -28,15 +31,26 @@ class VehiclesController {
     const vehicle = vehiclesRepository.create({
       brand,
       model,
-      buy_date,
-      buy_value,
       chassi,
       color,
       plate,
       year_of_fabrication,
     });
-
     await vehiclesRepository.save(vehicle);
+
+    const vehicle_id = vehicle.id;
+    const date = buy_date;
+    const value = buy_value;
+    const type = type_of_operation ? type_of_operation : 'buy';
+
+    const history = historyRepository.create({
+      vehicle_id: vehicle_id,
+      date,
+      value,
+      type,
+    });
+
+    await historyRepository.save(history);
 
     return response.json(vehicle).status(200);
   }
