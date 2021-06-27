@@ -14,5 +14,9 @@ router.put('/vehicles/:id', vehiclesController.edit);
 router.delete('/vehicles/:id', vehiclesController.delete);
 
 router.get('/history/:type', historyController.execute);
+router.get(
+  '/history/:month/:year',
+  historyController.get_profit_injury_by_month,
+);
 
 export { router };
