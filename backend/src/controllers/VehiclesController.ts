@@ -49,15 +49,16 @@ class VehiclesController {
     const vehicle_id = vehicle.id;
     const date = buy_date;
     const value = buy_value;
-
+    const commision = (value * 10) / 100;
+    console.log(isAvailable);
     let history;
-    if (isAvailable === false) {
+    if (vehicle.isAvailable === false) {
       history = historyRepository.create({
         vehicle_id: vehicle_id,
         date,
         value,
         type,
-        commision: (value * 10) / 100,
+        commision: commision,
       });
     } else {
       history = historyRepository.create({

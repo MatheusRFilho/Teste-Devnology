@@ -50,14 +50,14 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 #### Tela Financeiro
 - [x] Um get para o historico de compra e venda
 - [x] Um get para o lucro/prejuizo da empresa por mês
-- Um get para listagem das comissões por mês
+- [x] Um get para listagem das comissões por mês
 
 
 
 - [x] Um get, post, put e delete para o gerenciamento de Veiculos
 - Um post para criar uma venda
-- [x] Um get para Listagem de veiculos vendidos
-- [x] Um get para Listagem dos veiculos não vendidos
+- Um get para Listagem de veiculos vendidos
+- Um get para Listagem dos veiculos não vendidos
 
 ## Próximos passos foi criar alguns wireframes para o projeto
 

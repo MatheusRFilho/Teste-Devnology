@@ -33,6 +33,9 @@ class HistoryController {
     const historyRepository = getRepository(History);
     const history = await historyRepository.find();
     let aux = 0;
+    let auxCommision = 0;
+    let totalBuy = 0;
+    let totalSell = 0;
     history.map((item) => {
       if (
         dateStart.getTime() < item.date.getTime() &&
@@ -40,8 +43,11 @@ class HistoryController {
       ) {
         if (item.type === 'buy') {
           aux = aux - item.value;
+          totalBuy = totalBuy + item.value;
         } else {
           aux = aux + item.value;
+          totalSell = totalSell + item.value;
+          auxCommision = auxCommision + item.commision;
         }
       }
     });
@@ -55,7 +61,13 @@ class HistoryController {
       type = 'indiferente';
     }
 
-    return response.json({ value: aux, type: type });
+    return response.json({
+      value: aux,
+      type: type,
+      commision: auxCommision,
+      totalBuy: totalBuy,
+      totalSell: totalSell,
+    });
   }
 }
 
