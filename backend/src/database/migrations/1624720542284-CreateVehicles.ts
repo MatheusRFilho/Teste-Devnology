@@ -36,6 +36,10 @@ export class CreateVehicles1624720542284 implements MigrationInterface {
             type: 'varchar',
           },
           {
+            name: 'isAvailable',
+            type: 'boolean',
+          },
+          {
             name: 'created_at',
             type: 'timestamp',
             default: 'now()',

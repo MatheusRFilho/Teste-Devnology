@@ -23,6 +23,9 @@ class History {
   @Column()
   type: string;
 
+  @Column()
+  commision: number;
+
   constructor() {
     if (!this.id) {
       this.id = uuid();

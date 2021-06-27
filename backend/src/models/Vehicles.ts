@@ -24,6 +24,9 @@ class Vehicles {
   @Column()
   year_of_fabrication: number;
 
+  @Column()
+  isAvailable: boolean;
+
   @CreateDateColumn()
   created_at: Date;
 

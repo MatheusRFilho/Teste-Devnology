@@ -17,6 +17,7 @@ class VehiclesController {
       plate,
       year_of_fabrication,
       type_of_operation,
+      isAvailable,
     } = request.body;
 
     const vehiclesRepository = getRepository(Vehicles);
@@ -27,7 +28,13 @@ class VehiclesController {
     if (!isvaliddate) {
       throw new AppError('buy date is invalid!');
     }
-
+    const type = type_of_operation ? type_of_operation : 'buy';
+    let isAvailableAuxliar: boolean;
+    if (type === 'buy') {
+      isAvailableAuxliar = true;
+    } else {
+      isAvailableAuxliar = false;
+    }
     const vehicle = vehiclesRepository.create({
       brand,
       model,
@@ -35,20 +42,31 @@ class VehiclesController {
       color,
       plate,
       year_of_fabrication,
+      isAvailable: isAvailableAuxliar,
     });
     await vehiclesRepository.save(vehicle);
 
     const vehicle_id = vehicle.id;
     const date = buy_date;
     const value = buy_value;
-    const type = type_of_operation ? type_of_operation : 'buy';
 
-    const history = historyRepository.create({
-      vehicle_id: vehicle_id,
-      date,
-      value,
-      type,
-    });
+    let history;
+    if (isAvailable === false) {
+      history = historyRepository.create({
+        vehicle_id: vehicle_id,
+        date,
+        value,
+        type,
+        commision: (value * 10) / 100,
+      });
+    } else {
+      history = historyRepository.create({
+        vehicle_id: vehicle_id,
+        date,
+        value,
+        type,
+      });
+    }
 
     await historyRepository.save(history);
 

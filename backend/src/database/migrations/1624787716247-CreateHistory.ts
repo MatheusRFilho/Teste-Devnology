@@ -27,6 +27,11 @@ export class CreateHistory1624787716247 implements MigrationInterface {
             name: 'type',
             type: 'varchar',
           },
+          {
+            name: 'commision',
+            type: 'value',
+            isNullable: true,
+          },
         ],
         foreignKeys: [
           {
