@@ -78,5 +78,9 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 
 - Desenvolvimento do backend da aplicação
 
-
-
+### Para rodar o backend da aplicação use os seguintes comandos:
+Com o repositorio ja clonado e o node instalado na sua maquina
+- Abre o terminal no repositorio clonado
+- Execute o comando cd backend
+- npm install ou yarn install
+- npm run dev ou yarn dev
