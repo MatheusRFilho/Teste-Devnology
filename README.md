@@ -29,8 +29,8 @@ Decidi começar por analisar a estrutura que seria utilizada no banco de dados p
 
 ### Veículos
 - Id
-- Id Modelo
-- Id Marca
+- Modelo
+- Marca
 - Ano de Fabricação
 - Placa
 - Cor
@@ -84,3 +84,8 @@ Com o repositorio ja clonado e o node instalado na sua maquina
 - Execute o comando cd backend
 - npm install ou yarn install
 - npm run dev ou yarn dev
+
+Nota sobre o Backend
+
+Na raiz do projeto tem uma collection com todas as rotas criadas
+Após startar o servidor a collection poderá ser utilizada para testar as rotas
