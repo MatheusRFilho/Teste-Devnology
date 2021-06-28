@@ -55,3 +55,15 @@
 .form-button:hover {
   background-color: darkcyan;
 }
+
+
+.form-one-item  input::-webkit-outer-spin-button,
+.form-one-item  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.form-one-item  input[type=number] {
+  -moz-appearance: textfield;
+}

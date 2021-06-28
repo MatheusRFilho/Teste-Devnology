@@ -2,6 +2,7 @@ import { useState } from 'react';
 import api from '../../config/api';
 import NavBar from '../../globalComponents/NavBar/Navbar';
 import './style.css';
+import { useHistory } from 'react-router-dom';
 
 const BuyNewVehicle = () => {
   const [model, setModel] = useState('');
@@ -13,7 +14,10 @@ const BuyNewVehicle = () => {
   const [yearOfFabrication, setYearOfFabrication] = useState('');
   const [date, setDate] = useState('');
 
-  const handleSubmit = async () => {
+  let history = useHistory();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     try {
       const object = {
         model: model,
@@ -27,7 +31,7 @@ const BuyNewVehicle = () => {
       };
 
       await api.post('vehicles', object);
-      console.log(object);
+      history.push('/vehicles');
     } catch (error) {
       console.log(error);
     }
@@ -136,12 +140,15 @@ const BuyNewVehicle = () => {
             <div className="form-one-item">
               <label>Ano de Fabricação</label>
               <input
-                type="text"
+                type="number"
                 value={yearOfFabrication}
                 onChange={handleYearOfFabrication}
                 placeholder="Digite Aqui"
                 id="yearOfFabrication"
                 required
+                maxlength="4"
+                minLength="4"
+                size="4"
               />
             </div>
           </div>
@@ -149,7 +156,7 @@ const BuyNewVehicle = () => {
             <div className="form-one-item">
               <label>Valor da compra</label>
               <input
-                type="value"
+                type="number"
                 value={buyValue}
                 onChange={handleValue}
                 placeholder="Digite Aqui"
