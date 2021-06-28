@@ -88,12 +88,12 @@
   align-items: center;
 }
 
-.history-buttons{
+.history-buttons {
   width: 100%;
   margin-top: 15px;
 }
 
-.history-button{
+.history-button {
   width: 50%;
   border: none;
   cursor: pointer;
@@ -102,12 +102,12 @@
   border-radius: 10px;
 }
 
-.history-button:hover{
+.history-button:hover {
   background-color: lightblue;
 }
 
 
-.history-button-active{
+.history-button-active {
   width: 50%;
   border: none;
   cursor: pointer;
@@ -116,7 +116,7 @@
   border-radius: 10px;
 }
 
-.history-button-active:hover{
+.history-button-active:hover {
   background-color: lightblue;
 }
 

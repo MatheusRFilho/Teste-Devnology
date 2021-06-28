@@ -14,18 +14,7 @@ const BuyNewVehicle = () => {
   const [date, setDate] = useState('');
 
   const handleSubmit = async () => {
-    const object = {
-      model: model,
-      brand: brand,
-      color: color,
-      plate: plate,
-      chassi: chassi,
-      buy_value: buyValue,
-      year_of_fabrication: yearOfFabrication,
-      buy_date: date,
-    };
-
-    await api.post('vehicles', object);
+    console.log('test');
   };
 
   const handleModel = (event) => {
@@ -76,6 +65,7 @@ const BuyNewVehicle = () => {
                 value={model}
                 onChange={handleModel}
                 placeholder="Digite Aqui"
+                required
               />
             </div>
 
@@ -86,6 +76,8 @@ const BuyNewVehicle = () => {
                 value={brand}
                 onChange={handleBrand}
                 placeholder="Digite Aqui"
+                id="brand"
+                required
               />
             </div>
           </div>
@@ -97,6 +89,8 @@ const BuyNewVehicle = () => {
                 value={color}
                 onChange={handleColor}
                 placeholder="Digite Aqui"
+                id="color"
+                required
               />
             </div>
             <div className="form-one-item">
@@ -106,6 +100,8 @@ const BuyNewVehicle = () => {
                 value={plate}
                 onChange={handlePlate}
                 placeholder="Digite Aqui"
+                id="palte"
+                required
               />
             </div>
           </div>
@@ -117,6 +113,8 @@ const BuyNewVehicle = () => {
                 value={chassi}
                 onChange={handleChassi}
                 placeholder="Digite Aqui"
+                id="chassi"
+                required
               />
             </div>
             <div className="form-one-item">
@@ -126,6 +124,8 @@ const BuyNewVehicle = () => {
                 value={yearOfFabrication}
                 onChange={handleYearOfFabrication}
                 placeholder="Digite Aqui"
+                id="yearOfFabrication"
+                required
               />
             </div>
           </div>
@@ -137,6 +137,8 @@ const BuyNewVehicle = () => {
                 value={buyValue}
                 onChange={handleValue}
                 placeholder="Digite Aqui"
+                id="buyValue"
+                required
               />
             </div>
             <div className="form-one-item">
@@ -146,6 +148,8 @@ const BuyNewVehicle = () => {
                 value={date}
                 onChange={handleDate}
                 placeholder="Digite Aqui"
+                id="date"
+                required
               />
             </div>
           </div>
