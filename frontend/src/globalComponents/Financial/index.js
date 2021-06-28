@@ -14,11 +14,12 @@ const FinancialItem = () => {
   const [type, setType] = useState('');
   const [totalBuy, setTotalBuy] = useState('');
   const [totalSell, setTotalSell] = useState('');
-  const [value, setValUe] = useState('');
+  const [value, setValue] = useState('');
   const [commission, setCommission] = useState('');
 
   useEffect(() => {
     getInjuryProfit();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todayFormated]);
 
   function addDays(date, days) {
@@ -49,10 +50,11 @@ const FinancialItem = () => {
     try {
       const { data } = await api.get(`history/${todayFormated}`);
       setType(data.type);
-      setCommission(data.commission);
+      setCommission(data.commision);
+      console.log(data);
       setTotalBuy(data.totalBuy);
       setTotalSell(data.totalSell);
-      setValUe(data.value);
+      setValue(data.value);
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -60,17 +62,33 @@ const FinancialItem = () => {
   };
 
   return (
-    <div className="container">
-      <div className="header">
-        <button type="button" className="button" onClick={handleDecreaseDay}>
-          <FiArrowLeft />
-        </button>
-        <p className="formatedDate">{todayFormated}</p>
-        <button type="button" className="button" onClick={handleAddDay}>
-          <FiArrowRight />
-        </button>
+    <>
+      <div className="container">
+        <div className="header">
+          <button type="button" className="button" onClick={handleDecreaseDay}>
+            <FiArrowLeft />
+          </button>
+          <p className="formatedDate">{todayFormated}</p>
+          <button type="button" className="button" onClick={handleAddDay}>
+            <FiArrowRight />
+          </button>
+        </div>
       </div>
-    </div>
+
+      <div className="content">
+        <h2>Informações sobre situação atual do mês:</h2>
+        <div className="row">
+          <p>Status Financeiro atual: {type}</p>
+          <p>Valor: {value}</p>
+        </div>
+        <h2>Informações sobre compra e venda do mês:</h2>
+        <div className="row">
+          <p>Valor em Compras: {totalBuy} </p>
+          <p>Valor em Vendas: {totalSell}</p>
+          <p>Valor em comissões: {commission}</p>
+        </div>
+      </div>
+    </>
   );
 };
 

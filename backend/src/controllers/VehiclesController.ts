@@ -125,7 +125,7 @@ class VehiclesController {
     let history = historyRepository.create({
       vehicle_id: id,
       date: sell_date,
-      value: sell_value,
+      value: sell_value - (sell_value * 10) / 100,
       type: 'sell',
       commision: (sell_value * 10) / 100,
     });
