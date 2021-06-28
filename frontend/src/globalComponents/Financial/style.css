@@ -106,6 +106,20 @@
   background-color: lightblue;
 }
 
+
+.history-button-active{
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: lightblue;
+  border-radius: 10px;
+}
+
+.history-button-active:hover{
+  background-color: lightblue;
+}
+
 .itens {
   display: flex;
   flex-wrap: wrap;

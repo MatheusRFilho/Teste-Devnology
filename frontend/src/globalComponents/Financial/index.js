@@ -120,16 +120,39 @@ const FinancialItem = () => {
       </div>
 
       <div className="history">
-        <h2>Históricos</h2>
+        <h2>Histórico de compra e venda da empresa</h2>
 
-        <div className="history-buttons">
-          <button className="history-button" onClick={() => changeType('sell')}>
-            Vendas
-          </button>
-          <button className="history-button" onClick={() => changeType('buy')}>
-            Compras
-          </button>
-        </div>
+        {operation === 'buy' ? (
+          <div className="history-buttons">
+            <button
+              className="history-button"
+              onClick={() => changeType('sell')}
+            >
+              Vendas
+            </button>
+            <button
+              className="history-button-active"
+              onClick={() => changeType('buy')}
+            >
+              Compras
+            </button>
+          </div>
+        ) : (
+          <div className="history-buttons">
+            <button
+              className="history-button-active"
+              onClick={() => changeType('sell')}
+            >
+              Vendas
+            </button>
+            <button
+              className="history-button"
+              onClick={() => changeType('buy')}
+            >
+              Compras
+            </button>
+          </div>
+        )}
       </div>
       <div className="itens">
         {showOperations.map((item) => {
