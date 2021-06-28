@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.header {
+  flex-direction: row;
+  display: flex;
+
+  justify-content: center;
+  background-color: lightblue;
+
+  width: 50%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid black;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+
+}
+
+.button {
+  background-color: lightblue;
+  border: none;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  justify-content: center;
+}
+
+.button:hover {
+  background-color: darkcyan;
+}
+
+.formatedDate {
+  font-size: 1.2rem;
+  margin-top: -0.1rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

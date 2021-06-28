@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import './NavBar.css';
 
 const NavBar = ({ activeItem }) => {

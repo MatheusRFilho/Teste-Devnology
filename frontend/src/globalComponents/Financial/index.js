@@ -1,0 +1,77 @@
+import { useEffect, useState } from 'react';
+import api from '../../config/api';
+import moment from 'moment';
+import { FiArrowLeft, FiArrowRight } from 'react-icons/fi';
+
+import './style.css';
+
+const FinancialItem = () => {
+  const [today, setToday] = useState(moment());
+  const [todayFormated, setTodayFormated] = useState(
+    moment().format('MM/YYYY'),
+  );
+
+  const [type, setType] = useState('');
+  const [totalBuy, setTotalBuy] = useState('');
+  const [totalSell, setTotalSell] = useState('');
+  const [value, setValUe] = useState('');
+  const [commission, setCommission] = useState('');
+
+  useEffect(() => {
+    getInjuryProfit();
+  }, [todayFormated]);
+
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+
+  function decDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() - days);
+    return result;
+  }
+
+  const handleDecreaseDay = () => {
+    const newDate = decDays(today, 30);
+    setToday(newDate);
+    setTodayFormated(moment(newDate).format('MM/YYYY'));
+  };
+
+  const handleAddDay = () => {
+    const newDate = addDays(today, 30);
+    setToday(newDate);
+    setTodayFormated(moment(newDate).format('MM/YYYY'));
+  };
+
+  const getInjuryProfit = async () => {
+    try {
+      const { data } = await api.get(`history/${todayFormated}`);
+      setType(data.type);
+      setCommission(data.commission);
+      setTotalBuy(data.totalBuy);
+      setTotalSell(data.totalSell);
+      setValUe(data.value);
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="container">
+      <div className="header">
+        <button type="button" className="button" onClick={handleDecreaseDay}>
+          <FiArrowLeft />
+        </button>
+        <p className="formatedDate">{todayFormated}</p>
+        <button type="button" className="button" onClick={handleAddDay}>
+          <FiArrowRight />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default FinancialItem;
