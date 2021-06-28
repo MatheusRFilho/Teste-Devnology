@@ -39,6 +39,9 @@ const Vehicles = () => {
                 <p className="card-text">Cor: {item.vehicle.color}</p>
                 <p className="card-text">Chassi: {item.vehicle.chassi}</p>
                 <p className="card-text">Placa: {item.vehicle.plate}</p>
+                <p className="card-text">
+                  Ano de Fabricação: {item.vehicle.year_of_fabrication}
+                </p>
               </div>
               <div className="card-container">
                 <h3 className="card-title">Informações sobre a operação</h3>
