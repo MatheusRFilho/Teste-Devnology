@@ -22,9 +22,9 @@ const Vehicles = () => {
       <NavBar activeItem={'vehicles'}></NavBar>
 
       <div className="vehicles">
-        <button type="button" className="new-vehicle">
+        <a href="/new-vehicle" className="new-vehicle">
           Novo Veículo
-        </button>
+        </a>
         <h2>Veículos Disponiveis para vendas</h2>
       </div>
 
