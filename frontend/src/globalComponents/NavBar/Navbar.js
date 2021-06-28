@@ -20,21 +20,11 @@ const NavBar = ({ activeItem }) => {
             Veículos
           </a>
         ) : (
-          <a className="link" href="/">
+          <a className="link" href="/vehicles">
             Veículos
           </a>
         )}
       </div>
-      {/* <div>
-        <a className="link" href="#">
-          Test
-        </a>
-      </div>
-      <div>
-        <a className="link" href="#">
-          Test
-        </a>
-      </div> */}
     </div>
   );
 };

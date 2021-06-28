@@ -1,0 +1,41 @@
+.vehicles {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.new-vehicle {
+  background-color: lightblue;
+  border: none;
+  padding: 10px 50px;
+  border-radius: 5px;
+  margin-bottom: 50px;
+  cursor: pointer;
+}
+
+.new-vehicle:hover {
+  background-color: rgb(152, 190, 202);
+}
+
+.sell-button{
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.sell-button:hover {
+
+  background-color: lightblue;
+}
+
+.sell-button-container {
+  display: flex;
+  margin: 20px 0;
+
+  align-items: center;
+  justify-content: center;
+}

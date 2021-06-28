@@ -32,7 +32,6 @@ const FinancialItem = () => {
 
   const handleOperations = async () => {
     const { data } = await api.get(`history/${operation}`);
-    console.log(data);
     setShowOperations(data);
   };
 
