@@ -76,16 +76,30 @@ const FinancialItem = () => {
       </div>
 
       <div className="content">
-        <h2>Informações sobre situação atual do mês:</h2>
+        <h2 className="title">Informações sobre situação atual do mês:</h2>
         <div className="row">
-          <p>Status Financeiro atual: {type}</p>
-          <p>Valor: {value}</p>
+          <p className="text">
+            <strong>Status Financeiro atual:</strong> {type}
+          </p>
+          <p className="text">
+            <strong>Valor: </strong>
+            {value}
+          </p>
         </div>
-        <h2>Informações sobre compra e venda do mês:</h2>
+        <h2 className="title">Informações sobre compra e venda do mês:</h2>
         <div className="row">
-          <p>Valor em Compras: {totalBuy} </p>
-          <p>Valor em Vendas: {totalSell}</p>
-          <p>Valor em comissões: {commission}</p>
+          <p className="text">
+            <strong>Valor em Compras: </strong>
+            {totalBuy}{' '}
+          </p>
+          <p className="text">
+            <strong>Valor em Vendas: </strong>
+            {totalSell}
+          </p>
+          <p className="text">
+            <strong>Valor em comissões: </strong>
+            {commission}
+          </p>
         </div>
       </div>
     </>
