@@ -83,22 +83,22 @@ const FinancialItem = () => {
           </p>
           <p className="text">
             <strong>Valor: </strong>
-            {value}
+            R$ {value}
           </p>
         </div>
         <h2 className="title">Informações sobre compra e venda do mês:</h2>
         <div className="row">
           <p className="text">
             <strong>Valor em Compras: </strong>
-            {totalBuy}{' '}
+            R$ {totalBuy}
           </p>
           <p className="text">
             <strong>Valor em Vendas: </strong>
-            {totalSell}
+            R$ {totalSell}
           </p>
           <p className="text">
             <strong>Valor em comissões: </strong>
-            {commission}
+            R$ {commission}
           </p>
         </div>
       </div>
