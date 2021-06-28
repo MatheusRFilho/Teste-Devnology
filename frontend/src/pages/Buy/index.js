@@ -14,7 +14,23 @@ const BuyNewVehicle = () => {
   const [date, setDate] = useState('');
 
   const handleSubmit = async () => {
-    console.log('test');
+    try {
+      const object = {
+        model: model,
+        brand: brand,
+        color: color,
+        plate: plate,
+        chassi: chassi,
+        buy_value: buyValue,
+        year_of_fabrication: yearOfFabrication,
+        buy_date: date,
+      };
+
+      await api.post('vehicles', object);
+      console.log(object);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleModel = (event) => {
