@@ -78,3 +78,61 @@
 .text {
   font-size: 1rem;
 }
+
+.history {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 50px auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-buttons{
+  width: 100%;
+  margin-top: 15px;
+}
+
+.history-button{
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.history-button:hover{
+  background-color: lightblue;
+}
+
+.itens {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 5px;
+  min-width: 200px;
+  margin: 20px 20px;
+}
+
+.card-container {
+}
+
+.card-title {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 10px 20px;
+}
+
+.card-text {
+  font-size: 0.8rem;
+  margin-left: 5px;
+}

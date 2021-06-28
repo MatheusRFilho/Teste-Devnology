@@ -17,10 +17,24 @@ const FinancialItem = () => {
   const [value, setValue] = useState('');
   const [commission, setCommission] = useState('');
 
+  const [operation, setOperation] = useState('sell');
+  const [showOperations, setShowOperations] = useState([]);
+
   useEffect(() => {
     getInjuryProfit();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todayFormated]);
+
+  useEffect(() => {
+    handleOperations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [operation]);
+
+  const handleOperations = async () => {
+    const { data } = await api.get(`history/${operation}`);
+    console.log(data);
+    setShowOperations(data);
+  };
 
   function addDays(date, days) {
     var result = new Date(date);
@@ -51,14 +65,16 @@ const FinancialItem = () => {
       const { data } = await api.get(`history/${todayFormated}`);
       setType(data.type);
       setCommission(data.commision);
-      console.log(data);
       setTotalBuy(data.totalBuy);
       setTotalSell(data.totalSell);
       setValue(data.value);
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const changeType = (text) => {
+    setOperation(text);
   };
 
   return (
@@ -101,6 +117,56 @@ const FinancialItem = () => {
             R$ {commission}
           </p>
         </div>
+      </div>
+
+      <div className="history">
+        <h2>Históricos</h2>
+
+        <div className="history-buttons">
+          <button className="history-button" onClick={() => changeType('sell')}>
+            Vendas
+          </button>
+          <button className="history-button" onClick={() => changeType('buy')}>
+            Compras
+          </button>
+        </div>
+      </div>
+      <div className="itens">
+        {showOperations.map((item) => {
+          return (
+            <div className="card">
+              <div className="card-container">
+                <h3 className="card-title">Informações sobre o veículo</h3>
+                <p className="card-text">Marca: {item.vehicle.brand}</p>
+                <p className="card-text">Modelo: {item.vehicle.model}</p>
+                <p className="card-text">Cor: {item.vehicle.color}</p>
+                <p className="card-text">Chassi: {item.vehicle.chassi}</p>
+                <p className="card-text">Placa: {item.vehicle.plate}</p>
+              </div>
+
+              {item.type === 'buy' ? (
+                <div className="card-container">
+                  <h3 className="card-title">Informações sobre a operação</h3>
+                  <p className="card-text">
+                    Data da Compra: {moment(item.date).format('DD/MM/YYYY')}
+                  </p>
+                  <p className="card-text">Valor da Compra: R$ {item.value}</p>
+                </div>
+              ) : (
+                <div className="card-container">
+                  <h3 className="card-title">Informações sobre a operação</h3>
+                  <p className="card-text">
+                    Data da Venda: {moment(item.date).format('DD/MM/YYYY')}
+                  </p>
+                  <p className="card-text">Valor da Venda: R$ {item.value}</p>
+                  <p className="card-text">
+                    Comissão da Venda: R$ {item.commision}
+                  </p>
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
     </>
   );
