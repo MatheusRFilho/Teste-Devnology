@@ -78,7 +78,13 @@ class HistoryController {
     const history = await historyRepository.find({
       type: 'buy',
     });
-    return response.json(history);
+    let newHistory = [];
+    history.map((item) => {
+      if (item.vehicle.isAvailable === true) {
+        newHistory.push(item);
+      }
+    });
+    return response.json(newHistory);
   }
 }
 
