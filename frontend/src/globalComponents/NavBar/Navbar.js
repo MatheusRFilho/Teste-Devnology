@@ -16,7 +16,7 @@ const NavBar = ({ activeItem }) => {
       </div>
       <div>
         {activeItem === 'vehicles' ? (
-          <a className="linkActive" href="/">
+          <a className="linkActive" href="/vehicles">
             Veículos
           </a>
         ) : (
