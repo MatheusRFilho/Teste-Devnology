@@ -13,6 +13,8 @@ const Vehicles = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [vehicle, setVehicle] = useState({});
 
+  const [value, setValue] = useState('');
+  const [date, setDate] = useState('');
   useEffect(() => {
     getVehiclesAvailableToSell();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -33,7 +35,23 @@ const Vehicles = () => {
   };
 
   const handleSubmit = async () => {
-    console.log('banana');
+    try {
+      const { data } = await api.post(`sell/${vehicle.id}`, {
+        sell_value: value,
+        sell_date: date,
+      });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleValue = (event) => {
+    setValue(event.target.value);
+  };
+
+  const handleDate = (event) => {
+    setDate(event.target.value);
   };
 
   return (
@@ -105,11 +123,16 @@ const Vehicles = () => {
           <div className="form-two-itens">
             <div className="form-one-item">
               <label>Data da venda:</label>
-              <input type="date" />
+              <input type="date" onChange={handleDate} value={date} required />
             </div>
             <div className="form-one-item">
               <label>Valor da venda:</label>
-              <input typr="number" />
+              <input
+                typr="number"
+                onChange={handleValue}
+                value={value}
+                required
+              />
             </div>
           </div>
           <div className="form-button-modal">
