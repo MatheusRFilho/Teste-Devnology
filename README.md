@@ -59,7 +59,7 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 - [x] Um get para Listagem de veiculos vendidos
 - [x] Um get para Listagem dos veiculos não vendidos
 
-## Próximos passos foi criar alguns wireframes para o projeto
+## Próximos passos foi criados algumas telas de referencia para o projeto
 
 <img src="/images-readme/compras.jpeg" />
 
@@ -80,7 +80,7 @@ Após isso comecei a criar uma estrutura dos endpoints que seriam necessarios pa
 
 ### Para rodar o backend da aplicação use os seguintes comandos:
 Com o repositorio ja clonado e o node instalado na sua maquina
-- Abre o terminal no repositorio clonado
+- Abra o terminal no repositorio clonado
 - Execute o comando cd backend
 - npm install ou yarn install
 - npm run dev ou yarn dev
@@ -89,3 +89,18 @@ Nota sobre o Backend
 
 Na raiz do projeto tem uma collection com todas as rotas criadas
 Após startar o servidor a collection poderá ser utilizada para testar as rotas
+
+## Após isso foi criado o frontend
+
+Foi desenvolvido o frontend da aplicação e ja integrando com o backend
+
+### Para rodar o backend da aplicação use os seguintes comandos:
+Com o repositorio ja clonado e o backend rodando na sua maquina
+- Abra o terminal no repositorio clonado
+- Execute o comando cd frontend
+- npm install ou yarn install
+- npm start ou yarn start
+
+
+
+
