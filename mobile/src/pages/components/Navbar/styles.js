@@ -16,7 +16,7 @@ export default StyleSheet.create({
   },
 
   buttonContainerActive: {
-    backgroundColor: '#9FA0A4',
+    backgroundColor: '#676C88',
     height: 40,
     paddingHorizontal: 20,
     paddingVertical: 10,
