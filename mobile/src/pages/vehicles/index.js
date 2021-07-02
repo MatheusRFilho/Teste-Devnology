@@ -6,6 +6,7 @@ import NavBar from '../components/Navbar';
 import moment from 'moment';
 
 import styles from './styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Vehicles() {
   const [vehicles, setVehicles] = useState([]);
@@ -19,6 +20,8 @@ export default function Vehicles() {
     getVehiclesAvailableToSell();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   });
+
+  const navigation = useNavigation();
 
   function openModal(item) {
     setVehicle(item);
@@ -59,7 +62,7 @@ export default function Vehicles() {
 
       <View style={styles.vehicles}>
         <TouchableOpacity
-          onPress={() => console.log('compra')}
+          onPress={() => navigation.navigate('buy')}
           style={styles.newVehicles}
         >
           <Text style={styles.newVehiclesText}>Novo Veículo</Text>
@@ -70,7 +73,7 @@ export default function Vehicles() {
       <View style={styles.itens}>
         {vehicles.map((item) => {
           return (
-            <View style={styles.card}>
+            <View style={styles.card} key={item.id}>
               <View style={styles.cardContainer}>
                 <Text style={styles.cardTitle}>
                   Informações sobre o veículo
