@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View } from 'react-native';
+import api from '../../service/api';
 import NavBar from '../components/Navbar';
+
+import moment from 'moment';
 
 import styles from './styles';
 
